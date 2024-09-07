@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    margin-top: 30px;
+    display: flex;
+    width: 100%;
+}
+.container img , .container input{
+    margin: auto;
+}
+.input-source{
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+.input-source input{
+    width: 85%;
+    margin: 10px auto;
+    padding: 10px;
+}
+form button{
+    width: 90%;
+    padding: 10px;
+    margin: 5%;
+}
+.jumlah{
+    width: 100%;
+    padding: 20px 0;
+    background-color: greenyellow;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18pt;
+}
+h4{
+    margin-left: 20px;
+}
