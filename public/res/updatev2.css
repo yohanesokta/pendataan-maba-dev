@@ -15,6 +15,8 @@ nav{
     text-align: center;
     padding: 10px 0 40px 0;
 }
+.user{
+}
 nav .user input , nav .user button{
     font-size: 12pt;
     padding: 5px 10px ;
@@ -22,17 +24,17 @@ nav .user input , nav .user button{
     border: none;
     border-radius: 5px;
 }
-form{
+#form{
     display: flex;
     margin: 20px 30px;
     flex-direction: column;
 }
-form label{
+#form label{
     font-size: 12pt;
     color: rgb(54, 54, 54);
     margin: 10px 10px 5px 10px;
 }
-form input , form button{
+#form input , form button{
     font-size: 14pt;
     font-weight: bold;
     padding: 10px;
@@ -44,7 +46,7 @@ form input , form button{
 #website{
     font-weight: normal;
 }
-form button{
+#form button{
     margin-top: 30px;
     font-weight: bold;
     color: white;
@@ -124,3 +126,57 @@ form button{
       60%{background-position:0%  50%, 50% 100%,100%   0%}
       80%{background-position:0%  50%, 50%  50%,100% 100%}
   }
+  #nonfull{
+    display: flex;
+    flex-direction: column;
+  }
+  #nonfull h1{
+    color: #636363;
+    font-size: 12pt;
+    width: 100%;
+    text-align: center;
+  }
+  #nonfull .card-container{
+    display: flex;
+    margin: 40px 0;
+    justify-content: space-around;
+  }
+  #nonfull .card-container .card{
+    text-decoration: none;
+    text-align: center;
+    padding: 50px 10px;
+    color: #828282;
+    border: 2px solid #b9b9b9;
+    border-radius: 10px;
+  }
+  #nonfull .card-container .card i{
+    font-size: 18pt;
+
+  }
+  #nonfull .card-container .card:last-child{
+    background-color: #4da4e3;
+    color: white;
+    font-weight: bold;
+    border: none
+  }
+
+@media only screen and (min-width : 650px) {
+    body{
+        display: flex;
+        min-height: 80vh;
+    }
+    #nonfull .card-container{
+        width: 60%;
+        margin: 40px auto;
+    }
+    .container{
+        transform: scale(1.1);
+        margin: 100px auto;
+        width: 600px;
+        border-radius: 20px;
+        overflow: hidden;
+        min-height: 600px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.243);
+    }
+    
+}

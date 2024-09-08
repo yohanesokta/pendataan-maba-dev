@@ -11,13 +11,15 @@ use PhpParser\Node\Stmt\Foreach_;
 
 class tambahuser extends Controller
 {
-    public function home() {
+    public function home()
+    {
         $data = DB::table('anggota')->get();
-        return view('upload',[
+        return view('upload', [
             "data" => count($data)
         ]);
     }
-    public function tambah(Request $request) {
+    public function tambah(Request $request)
+    {
 
         DB::table('anggota')->insert([
             'fotoformal' => $request['link'],
@@ -33,65 +35,85 @@ class tambahuser extends Controller
         return "Data Berhasil Ditambahkan";
     }
 
-    public function lihat(){
+    public function lihat()
+    {
         $data = DB::table('anggota')->get();
-        return view('lihat',[
+        return view('lihat', [
             "Data" => $data
         ]);
     }
 
-    public function datacuy() {
+    public function datacuy()
+    {
         $data = DB::table('anggota')->get();
         return $data;
     }
 
-    public function admin(){
+    public function admin()
+    {
         $data = DB::table('anggota')->orderBy('kelompok')->get();
         return view('admin', [
             "Data" => $data
         ]);
     }
-    public function delete (Request $request) {
-        DB::table('anggota')->where('id', '=' , $request['nim'])->delete();
+    public function delete(Request $request)
+    {
+        DB::table('anggota')->where('id', '=', $request['nim'])->delete();
         return redirect('/admin');
     }
-    public function download(){
+    public function download()
+    {
         $data = DB::table('anggota')->get();
         $jsonData = json_encode($data, JSON_UNESCAPED_SLASHES);
 
         return response()->json($data, 200, [], JSON_UNESCAPED_SLASHES)
-    ->header('Content-Type', 'application/json')
-    ->header('Content-Disposition', 'attachment; filename="data.json"');
+            ->header('Content-Type', 'application/json')
+            ->header('Content-Disposition', 'attachment; filename="data.json"');
     }
 
-    function apiGet(Request $request) {
+    function apiGet(Request $request)
+    {
         $data = DB::table('anggota')->where('nim', '=', $request['nim'])->get();
         return $data;
     }
-    function updateWeb (Request $request) {
-        if ($request['website']){
-            $data = DB::table('anggota')->where("nim" , "=" ,$request['nimid'])->update([
+    function updateWeb(Request $request)
+    {
+        if ($request['website']) {
+            $data = DB::table('anggota')->where("nim", "=", $request['nimid'])->update([
                 "web" => $request["website"]
             ]);
 
-            return redirect('/update')->with("suc","success");
+            return redirect('/update')->with("suc", "success");
         }
     }
 
-    function refor() {
-        function getFileName($link, $name) {
+    function refor()
+    {
+        function getFileName($link, $name)
+        {
             $fileName = basename($link);
             return "https://storageangkatan.netlify.app/src/{$name}/{$fileName}";
         }
         $datas = DB::table('anggota')->get();
 
         foreach ($datas as $data) {
-            DB::table('anggota')->where('id','=',$data->id)->update([
-                "fotoformal" => getFileName($data->fotoformal,'formal'),
-                "fotoselfie" => getFileName($data->fotoselfie,'selfie'),
+            DB::table('anggota')->where('id', '=', $data->id)->update([
+                "fotoformal" => getFileName($data->fotoformal, 'formal'),
+                "fotoselfie" => getFileName($data->fotoselfie, 'selfie'),
             ]);
         }
 
         return "berhasil";
+    }
+
+    function apiView(Request $request)
+    {
+        if ($request["data"] == "all") {
+            $datas = DB::table("anggota")->where("web", "!=", null)->get();
+            return $datas;
+        } else {
+            $datas = DB::table("anggota")->where("kelompok", "=", $request["data"])->get();
+            return $datas;
+        }  
     }
 }

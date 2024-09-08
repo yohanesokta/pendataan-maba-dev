@@ -2,7 +2,7 @@ const formComponent = document.getElementById('form')
 const csrf = formComponent?.innerHTML
 const loader = document.getElementById('loader')
 const infoContainer = document.getElementById('info-container');
-const componentInfo = (img,msg) => {
+const componentInfo = (img, msg) => {
     return `<div class="info">
             <img width="100" height="100" src="${img}" alt="x"/>
             <p>${msg}</p>
@@ -44,8 +44,8 @@ async function getUsers(nim) {
     data = await data.json()
     loader.style.display = 'none'
 
-    if (data.length < 1 ) {
-        infoContainer.innerHTML = componentInfo('https://img.icons8.com/bubbles/100/x.png','Datamu tidak dapat ditemukan atau tidak terdaftar')
+    if (data.length < 1) {
+        infoContainer.innerHTML = componentInfo('https://img.icons8.com/bubbles/100/x.png', 'Datamu tidak dapat ditemukan atau tidak terdaftar')
         infoContainer.style.display = 'flex'
         return
     }
@@ -55,12 +55,15 @@ async function getUsers(nim) {
 }
 
 const btn = document.getElementById('nim-submit')
-btn.addEventListener('click', e => {
+
+document.getElementById('form-first').addEventListener('submit', (e) => {
+    e.preventDefault();
     const value = document.getElementById('nim').value
     getUsers(value);
 })
 
-function btnInfo () {
+
+function btnInfo() {
     infoContainer.innerHTML = ""
     infoContainer.style.display = 'none'
 }
