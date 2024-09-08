@@ -61,7 +61,7 @@
             document.getElementById('info-container2').style.display = "none"
         }
     </script>
-    <script src="/res/update.js"></script>
+    <script src="/res/update2.js"></script>
 </body>
 
 </html>

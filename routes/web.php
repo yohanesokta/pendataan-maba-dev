@@ -26,7 +26,7 @@ Route::get('/api/data', [tambahuser::class, 'apiGet']);
 Route::get('/refor', [tambahuser::class, 'refor']);
 Route::post('/update', [tambahuser::class, 'updateWeb']);
 Route::get('/update', function () {
-    return view('updatev2');
+    return view('updatev02');
 })->name('update');
 
 Route::get('/web', function () {
