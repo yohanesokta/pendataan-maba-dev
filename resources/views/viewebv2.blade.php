@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pendataan angkatan - temukan website teman kalian dari berbagai kelompok</title>
-    <link rel="stylesheet" href="/res/vieweb.css">
+    <link rel="stylesheet" href="/res/viewebv2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 
 <body>
 
 
-    <div class="container">
+    <div class="main-container">
         <button id="home" onclick="window.location.href = '/update'"
             style="position: fixed; top:10px; left:10px; width:40px; height:40px; display:flex; z-index:999; border:none; outline:none; border-radius:10px;">
             <i class="fa-solid fa-house" style="margin: auto;"></i>
@@ -45,7 +45,9 @@
         </nav>
         <div class="table" id="table">
         </div>
-        <script src="/res/vieweb.js"></script>
+    </div>
+    <script src="/res/viewebv2.js"></script>
+
 </body>
 
 </html>

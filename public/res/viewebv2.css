@@ -7,6 +7,12 @@ body{
     box-sizing: border-box;
     font-family: 'Poppins',Arial, Helvetica, sans-serif;
 }
+.main-container{
+  margin: auto;
+  display: flex;
+  max-height: 100vh;
+  flex-direction: column;
+}
 nav{
     position: relative;
     width: 100%;
@@ -14,8 +20,6 @@ nav{
     background-color: #0F85DC;
     text-align: center;
     padding: 10px 0 40px 0;
-}
-.user{
 }
 nav .user select , nav .user button{
     font-size: 12pt;
@@ -161,8 +165,8 @@ nav .user select , nav .user button{
   }
   .table{
     font-weight: 500;
-    max-height: 600px;
     overflow-y: scroll;
+    flex: 1;
   }
   .table .list{
     text-decoration: none;
@@ -179,6 +183,7 @@ nav .user select , nav .user button{
     width: 50px;
     border-radius: 10px;
     height: 50px;
+    object-fit: cover;
   }
   a{
     color: black;
@@ -211,14 +216,18 @@ nav .user select , nav .user button{
         width: 60%;
         margin: 40px auto;
     }
-    .container{
-        transform: scale(1.1);
-        margin: 100px auto;
+    .main-container{
+      position: relative;
+        margin:10px auto;
+        max-height: 90vh;
         width: 600px;
         border-radius: 20px;
         overflow: hidden;
-        min-height: 600px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.243);
+    }
+    .main-container button {
+      color: white;
+      opacity: 0;
     }
     
 }

@@ -30,7 +30,7 @@ Route::get('/update', function () {
 })->name('update');
 
 Route::get('/web', function () {
-    return view('vieweb');
+    return view('viewebv2');
 });
 
 
